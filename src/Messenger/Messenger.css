@@ -1,0 +1,35 @@
+.messenger-container {
+    grid-column:1;
+    grid-row: 1 / 6 ;
+    overflow-y:hidden;
+    display:flex;
+    flex-direction: column;
+}
+
+.message-container {
+    flex:1;
+    overflow-y:auto;
+}
+
+.message-row p {
+    font-size:.8em;
+    font-weight:100;
+}
+
+.message-input {
+    display:flex;
+    width:100%;
+    flex-direction:row;
+    font-size:.8em;
+    justify-content: space-between;
+}
+
+.message-input button {
+    background:none;
+    border:none;
+    font-weight:bold;
+}
+
+.message-input input {
+    flex:1;
+}

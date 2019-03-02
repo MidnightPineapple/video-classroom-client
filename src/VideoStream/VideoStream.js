@@ -8,7 +8,7 @@ import AudioEmitter from '../lib/AudioEmitter'
 export default class VideoStream extends Component {
 
     componentDidMount() {
-        const audio = new AudioEmitter(Microphone)
+        new AudioEmitter(Microphone)
     }
 
     render() {

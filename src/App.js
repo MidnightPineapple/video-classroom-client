@@ -7,7 +7,6 @@ import VideoStream from './VideoStream'
 
 class App extends Component {
   render() {
-
     return (
       <div className="App">
         <Messenger />

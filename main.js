@@ -2,13 +2,20 @@ const { BrowserWindow, app, ipcMain } = require('electron')
 
 const path = require('path');
 
+process.env.NODE_ENV = "production"
+
 let mainWindow
 
 function createWindow() {
     mainWindow = new BrowserWindow({width: 800, height: 600});
-    // mainWindow.loadFile(path.join("build", "index.html"));
-    mainWindow.loadURL("http://localhost:3000");
-    // mainWindow.webContents.openDevTools();
+
+    if(process.env.NODE_ENV === "production") {
+        mainWindow.loadFile(path.join("build", "index.html"));
+        mainWindow.webContents.openDevTools();
+    } else {
+        mainWindow.loadURL("http://localhost:3000");
+    }
+
     mainWindow.on('closed', function () {
         mainWindow = null
     })

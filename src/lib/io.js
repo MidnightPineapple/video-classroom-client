@@ -1,7 +1,10 @@
 const io = require('sails.io.js')(require('socket.io-client'));
 
-// io.SERVER_URL = 'https://agile-peak-85163.herokuapp.com'
-io.SERVER_URL = "http://localhost:1337"
+if(process.env.NODE_ENV === "production") {
+    io.SERVER_URL = 'https://agile-peak-85163.herokuapp.com'
+} else {
+    io.SERVER_URL = "http://localhost:1337"
+}
 
 io.VIDEO_ROUTE = '/video/emitvideo'
 io.SCREEN_ROUTE = '/video/stream'

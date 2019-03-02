@@ -2,10 +2,6 @@ import io from './io'
 
 export default class MessageApi {
 
-    constructor() {
-        io.socket.get(io.MESSAGE_SUBSCRIBE_ROUTE)
-    }
-
     async get() {
         const response = await fetch(io.SERVER_URL+io.MESSAGE_ROUTE)
         const json = await response.json()

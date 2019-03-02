@@ -1,7 +1,5 @@
 import io from './io';
 
-io.socket.get(io.VIDEO_SUBSCRIBE_ROUTE)
-
 export default class VideoEmitter {
 
     constructor(videoSource, video, canvas) {

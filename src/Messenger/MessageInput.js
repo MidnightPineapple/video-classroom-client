@@ -16,8 +16,6 @@ export default class MessengeInput extends Component {
     }
 
     render() {
-
-        const { onSubmit } = this.props
         const { value } = this.state
 
         return (

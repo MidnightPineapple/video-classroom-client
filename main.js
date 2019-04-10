@@ -2,7 +2,7 @@ const { BrowserWindow, app, ipcMain } = require('electron')
 
 const path = require('path');
 
-process.env.NODE_ENV = "production"
+process.env.NODE_ENV = "development"
 
 let mainWindow
 

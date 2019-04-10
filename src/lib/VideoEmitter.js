@@ -8,12 +8,11 @@ export default class VideoEmitter {
         this.context.height = canvas.height
         this.context.width = canvas.width
         videoSource(this.handleError.bind(this), this.handleStream.bind(this))
-        
 
         setInterval(() => {
             this.context.drawImage(video, 0, 0, this.context.width, this.context.height)
-            
-            const route = videoSource.type === "desktop" 
+
+            const route = videoSource.type === "desktop"
             ? io.SCREEN_ROUTE
             : io.VIDEO_ROUTE
 

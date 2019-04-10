@@ -39,7 +39,6 @@ export function Desktop(handleError, handleStream) {
         })
         .then(handleStream)
         .catch(handleError)
-
     })
 }
 

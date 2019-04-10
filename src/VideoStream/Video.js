@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TwilioConnection, connectVideo, connectScreen } from '../lib/TwilioApi'
+import { connectVideo, connectScreen } from '../lib/TwilioApi'
 
 export default class Video extends Component {
 
@@ -17,7 +17,8 @@ export default class Video extends Component {
         //     new VideoEmitter(videoSource, this.video.current, this.canvas.current)
         // }
 
-        const conn = new TwilioConnection()
+        const conn = this.props.connection
+
         if(this.props.type === "webcam") {
           connectVideo(conn, this.videoElement.current)
         } else if(this.props.type === "desktop") {

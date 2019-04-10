@@ -30,7 +30,7 @@ export default class TwilioConnection {
     if(!this.ready) {
       return await new Promise( s => {
         this.backlog.push( x => {
-          s(this.connect(x, config))
+          s(this.connect(config))
         })
       })
     }

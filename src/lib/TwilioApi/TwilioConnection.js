@@ -21,7 +21,7 @@ export default class TwilioConnection {
   }
 
   onReady() {
-    for( const callback in this.backlog ) {
+    for( const callback of this.backlog ) {
       callback()
     }
   }

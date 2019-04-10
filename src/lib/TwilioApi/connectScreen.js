@@ -1,24 +1,8 @@
+import { LocalVideoTrack } from 'twilio-video'
 import { desktopCapturer } from 'electron'
 
-export function Webcam(handleError, handleStream) {
 
-    navigator.mediaDevices.getUserMedia({
-        video: {
-            width: 1280,
-            height: 720,
-        },
-        audio: false
-    }).then(
-        handleStream
-    ).catch(
-        handleError
-    )
-
-}
-
-Webcam.type = "webcam"
-
-export function Desktop(handleError, handleStream) {
+function getDesktop(handleError, handleStream) {
     desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => {
         if (error) throw error
 
@@ -42,4 +26,24 @@ export function Desktop(handleError, handleStream) {
     })
 }
 
-Desktop.type = 'desktop'
+export default (twilioConnection, videoElement) => {
+  getDesktop(e => { throw e; }, function(stream) {
+
+
+    const mediatrack = stream.getVideoTracks()[0]
+
+    const screenTrack = new LocalVideoTrack(mediatrack)
+
+    twilioConnection.connect({
+      name:"screenshare",
+      tracks: [ screenTrack ]
+    })
+
+    screenTrack.attach(videoElement)
+
+    // BUG: did they join the same room?
+
+
+
+  })
+}
